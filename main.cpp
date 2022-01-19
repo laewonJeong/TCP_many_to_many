@@ -8,6 +8,6 @@ int main(int argc, char* argv[]){
         printf("%s <MY IP>\n", argv[0]);
         exit(1);
     }
-    TCP server = TCP();
-    server.Run(argv[1]);
+    TCP tcp = TCP();
+    tcp.Run(argv[1]);
 }
