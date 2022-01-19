@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/tcp.hpp
+stdio.h
+-
+netdb.h
+-
+netinet/in.h
+-
+stdlib.h
+-
+string.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+iostream
+-
+unistd.h
+-
+string
+-
+vector
+-
+pthread.h
+-
+thread
+-
+
+/home/lwjeong/project/main.cpp
+iostream
+-
+tcp.hpp
+/home/lwjeong/project/tcp.hpp
+
