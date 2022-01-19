@@ -70,7 +70,7 @@ void * send_msgc(void * arg)
    while(1) 
    {
       fgets(msg, BUF_SIZE, stdin);
-      if(!strcmp(msg,"q\n")||!strcmp(msg,"Q\n")) 
+      if(!strcmp(msg,"exit\n")) 
       {
          close(sock);
          exit(0);
