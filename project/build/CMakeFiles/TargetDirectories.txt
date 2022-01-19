@@ -1,6 +1,0 @@
-/home/lwjeong/project/build/CMakeFiles/rebuild_cache.dir
-/home/lwjeong/project/build/CMakeFiles/edit_cache.dir
-/home/lwjeong/project/build/CMakeFiles/program.dir
-/home/lwjeong/project/build/src/CMakeFiles/rebuild_cache.dir
-/home/lwjeong/project/build/src/CMakeFiles/edit_cache.dir
-/home/lwjeong/project/build/src/CMakeFiles/tcp.dir
