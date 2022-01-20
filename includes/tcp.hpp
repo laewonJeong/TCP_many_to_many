@@ -18,6 +18,8 @@ class TCP{
         void Run(const char* iip);
         void Client(const char* iip);
         void check(const char* iip);
+        void * send_msgc(void * argc);
+        void * recv_msg(void * arg);
     private:
         const char* server[8] = {"192.168.1.101", "192.168.1.102",
                                 "192.168.1.103", "192.168.1.104",

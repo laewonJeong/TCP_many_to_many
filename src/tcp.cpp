@@ -63,7 +63,7 @@ void send_msg(char* msg, int len)
    pthread_mutex_unlock(&mutx);
 }
 
-void * send_msgc(void * arg)
+void * TCP::send_msgc(void * arg)
 {
    int sock=*((int*)arg);
    char name_msg[NAME_SIZE+BUF_SIZE];
@@ -84,7 +84,7 @@ void * send_msgc(void * arg)
    return NULL;
 }
    
-void * recv_msg(void * arg)
+void * TCP::recv_msg(void * arg)
 {
    int sock=*((int*)arg);
    char name_msg[NAME_SIZE+BUF_SIZE];
@@ -163,11 +163,14 @@ void TCP::Client(const char* iip){
       }
       sleep(1);
    }
-   
-   pthread_create(&snd_thread, NULL, send_msgc, (void*)&sock);
-   pthread_create(&rcv_thread, NULL, recv_msg, (void*)&sock);
-   pthread_join(snd_thread, &thread_return);
-   pthread_join(rcv_thread, &thread_return);
+   thread snd_th = thread(&TCP::send_msgc,TCP(),(void*)&sock);
+   thread rcv_th = thread(&TCP::recv_msg,TCP(),(void*)&sock);
+   snd_th.join();
+   rcv_th.join();
+   //pthread_create(&snd_thread, NULL, send_msgc, (void*)&sock);
+   //pthread_create(&rcv_thread, NULL, recv_msg, (void*)&sock);
+   //pthread_join(snd_thread, &thread_return);
+   //pthread_join(rcv_thread, &thread_return);
    close(sock);  
 }
 void TCP::Run(const char* iip){
