@@ -1,24 +1,4 @@
-#include <stdio.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <iostream>
-#include <unistd.h>
-#include <arpa/inet.h>
 #include "tcp.hpp"
-#include <string>
-#include <vector>
-#include <thread>
-#include <pthread.h>
-#define MAX 80
-#define PORT 40100
-#define SA struct sockaddr
-#define BUF_SIZE 100
-#define NAME_SIZE 20
-using namespace std;
 
 int clnt_cnt=0;
 int clnt_socks[256];

@@ -7,11 +7,18 @@
 #include <sys/types.h>
 #include <iostream>
 #include <unistd.h>
+#include <arpa/inet.h>
 #include <string>
 #include <vector>
-#include <pthread.h>
 #include <thread>
+#include <pthread.h>
+#define MAX 80
+#define PORT 40100
+#define SA struct sockaddr
+#define BUF_SIZE 100
+#define NAME_SIZE 20
 using namespace std;
+
 class TCP{
     public:
         void Server();

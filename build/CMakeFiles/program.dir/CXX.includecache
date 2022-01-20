@@ -25,13 +25,15 @@ iostream
 -
 unistd.h
 -
+arpa/inet.h
+-
 string
 -
 vector
 -
-pthread.h
--
 thread
+-
+pthread.h
 -
 
 /home/lwjeong/project/main.cpp
