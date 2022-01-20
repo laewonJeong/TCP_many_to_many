@@ -27,7 +27,6 @@ class TCP{
                                 "192.168.1.107", "192.168.1.108"};
         int sock;
         struct sockaddr_in serv_addr;
-        pthread_t snd_thread, rcv_thread;
         void * thread_return;
         int serv_sock, clnt_sock;
         struct sockaddr_in serv_adr, clnt_adr;
