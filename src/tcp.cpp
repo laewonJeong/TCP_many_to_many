@@ -33,10 +33,10 @@ void TCP::send_msg(char* msg, int len)
 {
    int i;
    //fputs(msg, stdout);
-   pthread_mutex_lock(&mutx);
+   //pthread_mutex_lock(&mutx);
    for(i=0; i<clnt_cnt; i++)
       write(clnt_socks[i], msg, len);
-   pthread_mutex_unlock(&mutx);
+   //pthread_mutex_unlock(&mutx);
 }
 
 void * TCP::send_msgc()
