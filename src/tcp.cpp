@@ -2,7 +2,6 @@
 
 int clnt_cnt=0;
 int clnt_socks[256];
-pthread_mutex_t mutx;
 char name[NAME_SIZE];
 char msg[BUF_SIZE];
 
@@ -40,9 +39,8 @@ void TCP::send_msg(char* msg, int len)
    pthread_mutex_unlock(&mutx);
 }
 
-void * TCP::send_msgc(void * arg)
+void * TCP::send_msgc()
 {
-   int sock=*((int*)arg);
    char name_msg[NAME_SIZE+BUF_SIZE];
    while(1) 
    {
@@ -105,8 +103,6 @@ void TCP::Server(){
 
       thread handle = thread(&TCP::handle_clnt,TCP(),(void*)&clnt_sock);
       handle.detach();
-      //pthread_create(&t_id, NULL, handle_clnt, (void*)&clnt_sock);
-      //pthread_detach(t_id);
       printf("%s와 연결 성공 \n", inet_ntoa(clnt_adr.sin_addr));
    }
    close(serv_sock);
@@ -142,15 +138,15 @@ void TCP::Client(const char* iip){
       }
       sleep(1);
    }
-   thread snd_th = thread(&TCP::send_msgc,TCP(),(void*)&sock);
+   thread snd_th = thread(&TCP::send_msgc,TCP());
    thread rcv_th = thread(&TCP::recv_msg,TCP(),(void*)&sock);
    snd_th.join();
    rcv_th.join();
    close(sock);  
 }
 void TCP::Run(const char* iip){
-   thread t1 = thread(&TCP::Server,TCP());
+   thread serv = thread(&TCP::Server,TCP());
    TCP::check(iip);
 
-   t1.join();
+   serv.join();
 }

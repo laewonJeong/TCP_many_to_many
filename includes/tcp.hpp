@@ -27,7 +27,7 @@ class TCP{
         void check(const char* iip);
         void * handle_clnt(void* arg);
         void send_msg(char* msg, int len);
-        void * send_msgc(void * argc);
+        void * send_msgc();
         void * recv_msg(void * arg);
     private:
         const char* server[8] = {"192.168.1.101", "192.168.1.102",
@@ -35,11 +35,11 @@ class TCP{
                                 "192.168.1.105", "192.168.1.106",
                                 "192.168.1.107", "192.168.1.108"};
         int sock;
-        struct sockaddr_in serv_addr;
         void * thread_return;
-        int serv_sock, clnt_sock;
+        struct sockaddr_in serv_addr;
         struct sockaddr_in serv_adr, clnt_adr;
+        int serv_sock, clnt_sock; 
         int clnt_adr_sz;
-        pthread_t t_id;
+        pthread_mutex_t mutx;
         vector<thread> workers;
 };
