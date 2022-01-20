@@ -1,2 +1,0 @@
-# gitLearning
-git study

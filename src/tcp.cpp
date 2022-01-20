@@ -105,7 +105,7 @@ void TCP::Server(){
    serv_sock=socket(PF_INET, SOCK_STREAM, 0);
 
    memset(&serv_adr, 0, sizeof(serv_adr));
-   serv_adr.sin_family=AF_INET; 
+   serv_adr.sin_family=AF_INET;
    serv_adr.sin_addr.s_addr=htonl(INADDR_ANY);
    serv_adr.sin_port=htons(PORT);
    
@@ -167,10 +167,6 @@ void TCP::Client(const char* iip){
    thread rcv_th = thread(&TCP::recv_msg,TCP(),(void*)&sock);
    snd_th.join();
    rcv_th.join();
-   //pthread_create(&snd_thread, NULL, send_msgc, (void*)&sock);
-   //pthread_create(&rcv_thread, NULL, recv_msg, (void*)&sock);
-   //pthread_join(snd_thread, &thread_return);
-   //pthread_join(rcv_thread, &thread_return);
    close(sock);  
 }
 void TCP::Run(const char* iip){
