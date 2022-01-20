@@ -25,6 +25,8 @@ class TCP{
         void Run(const char* iip);
         void Client(const char* iip);
         void check(const char* iip);
+        void * handle_clnt(void* arg);
+        void send_msg(char* msg, int len);
         void * send_msgc(void * argc);
         void * recv_msg(void * arg);
     private:
