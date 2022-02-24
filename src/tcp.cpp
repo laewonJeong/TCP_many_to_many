@@ -59,10 +59,14 @@ void TCP::recv_msg(void * arg) // 안쓰는 함수
 void TCP::Recv_Msg(int ip){
    while(1){
       char name_msg[1030];
-      read(new_sock[ip], name_msg, 1030);
+      int str_len;
+      str_len = read(new_sock[ip], name_msg, 1030);
       if(strcmp(name_msg,"exit\n")==0)
          break;
-      printf("%s", name_msg);
+      if(str_len==-1) 
+         break;
+      name_msg[str_len]='\0';
+      fputs(name_msg, stdout);
    }
 }
 void TCP::Server(){

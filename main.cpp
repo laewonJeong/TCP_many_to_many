@@ -37,6 +37,7 @@ int main(int argc, char* argv[]){
         server_ip.push_back(idx+1);
         idx++;
   }
+  cout << "------채팅시작------"<<endl;
   while(1){
       fgets(msg,1024,stdin);
       if(strcmp(msg,"exit\n")!=0)
