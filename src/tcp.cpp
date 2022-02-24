@@ -33,6 +33,9 @@ void TCP::send_msg(void * arg) //안쓰는 함수
    }
 } 
 void TCP::Send_Msg(const char* m, int ip){
+   char name_msg[NAME_SIZE+BUF_SIZE];
+   sprintf(name_msg,"%s %s",name, m);
+   printf("%s", name_msg);
    mutx.lock();
    write(clnt_socks[ip],m,strlen(m));
    mutx.unlock();
@@ -61,8 +64,9 @@ void TCP::Recv_Msg(int ip){
       char name_msg[1030];
       int str_len;
       str_len = read(new_sock[ip], name_msg, 1030);
-      if(strcmp(name_msg,"exit\n")==0)
-         break;
+      if(strcmp(name_msg,"exit\n")==0){
+         exit(0);
+      }
       if(str_len==-1) 
          break;
       name_msg[str_len]='\0';

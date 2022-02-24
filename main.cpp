@@ -7,17 +7,10 @@ int main(int argc, char* argv[]){
     exit(1);
   }
   int socks_cnt;
-  char NAME[6];
+  //char NAME[6];
   vector<int> server_ip;
   int idx = 0;
   char msg[1024];
-  char name_msg[1030];
-  NAME[0]='[';
-  NAME[1]='S';
-  NAME[2]='N';
-  NAME[3]='0';
-  NAME[4]=argv[1][12];
-  NAME[5]=']';
 
   TCP tcp = TCP();
   cout << "Server_t() 실행" <<endl;
@@ -27,6 +20,7 @@ int main(int argc, char* argv[]){
     
   cout << "Client_t() 실행"<<endl;
   tcp.Client_t(argv[1]);
+  cout << "자는중... 기다리세요"<<endl;
   sleep(2);
   socks_cnt = tcp.Scnt();
   sleep(2);
@@ -39,11 +33,11 @@ int main(int argc, char* argv[]){
   }
   cout << "------채팅시작------"<<endl;
   while(1){
+      //char name_msg[1040];
       fgets(msg,1024,stdin);
-      if(strcmp(msg,"exit\n")!=0)
-        sprintf(name_msg,"%s %s",NAME, msg);
+
       for(int i=0;i<socks_cnt;i++){
-          tcp.Send_Msg(name_msg,server_ip[i]);
+          tcp.Send_Msg(msg,server_ip[i]);
       }
       if(strcmp(msg,"exit\n")==0)
         break;
