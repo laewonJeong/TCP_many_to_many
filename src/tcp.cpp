@@ -60,7 +60,9 @@ void TCP::Recv_Msg(int ip){
    while(1){
       char name_msg[1030];
       read(new_sock[ip], name_msg, 1030);
-      cout << name_msg << endl;
+      if(strcmp(name_msg,"exit\n")==0)
+         break;
+      printf("%s", name_msg);
    }
 }
 void TCP::Server(){

@@ -39,10 +39,13 @@ int main(int argc, char* argv[]){
   }
   while(1){
       fgets(msg,1024,stdin);
-      sprintf(name_msg,"%s %s",NAME, msg);
+      if(strcmp(msg,"exit\n")!=0)
+        sprintf(name_msg,"%s %s",NAME, msg);
       for(int i=0;i<socks_cnt;i++){
           tcp.Send_Msg(name_msg,server_ip[i]);
       }
+      if(strcmp(msg,"exit\n")==0)
+        break;
   }
 
   return 0;
