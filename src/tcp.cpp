@@ -34,10 +34,12 @@ void TCP::send_msg(void * arg) //안쓰는 함수
 } 
 void TCP::Send_Msg(const char* m, int ip){
    char name_msg[NAME_SIZE+BUF_SIZE];
-   sprintf(name_msg,"%s %s",name, m);
-   printf("%s", name_msg);
+   if(strcmp(m,"exit\n")==0)
+      strcpy(name_msg,m);
+   else
+      sprintf(name_msg,"%s %s",name, m);
    mutx.lock();
-   write(clnt_socks[ip],m,strlen(m));
+   write(clnt_socks[ip],name_msg,strlen(name_msg));
    mutx.unlock();
 }
 void TCP::recv_msg(void * arg) // 안쓰는 함수
