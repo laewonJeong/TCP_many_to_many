@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lwjeong/project/src/tcp.cpp" "/home/lwjeong/project/build/src/CMakeFiles/tcp.dir/tcp.cpp.o"
+  "/home/lwjeong/TCP_many_to_many/TCP_many_to_many/src/tcp.cpp" "/home/lwjeong/TCP_many_to_many/TCP_many_to_many/build/src/CMakeFiles/tcp.dir/tcp.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

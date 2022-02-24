@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lwjeong/project/main.cpp" "/home/lwjeong/project/build/CMakeFiles/program.dir/main.cpp.o"
+  "/home/lwjeong/TCP_many_to_many/TCP_many_to_many/main.cpp" "/home/lwjeong/TCP_many_to_many/TCP_many_to_many/build/CMakeFiles/program.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/lwjeong/project/build/src/CMakeFiles/tcp.dir/DependInfo.cmake"
+  "/home/lwjeong/TCP_many_to_many/TCP_many_to_many/build/src/CMakeFiles/tcp.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

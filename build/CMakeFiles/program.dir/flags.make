@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wall -Werror
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/lwjeong/project/src/../includes 
+CXX_INCLUDES = -I/home/lwjeong/TCP_many_to_many/TCP_many_to_many/src/../includes 
 

@@ -1,13 +1,49 @@
-#include<iostream>
 #include "tcp.hpp"
-using namespace std;
 
 int main(int argc, char* argv[]){
-    if(argc != 2)
-    {
-        printf("%s <MY IP>\n", argv[0]);
-        exit(1);
-    }
-    TCP tcp = TCP();
-    tcp.Run(argv[1]);
+  if(argc != 2)
+  {
+    std::cout << argv[0] << " MY IP" << std::endl;
+    exit(1);
+  }
+  int socks_cnt;
+  char NAME[6];
+  vector<int> server_ip;
+  int idx = 0;
+  char msg[1024];
+  char name_msg[1030];
+  NAME[0]='[';
+  NAME[1]='S';
+  NAME[2]='N';
+  NAME[3]='0';
+  NAME[4]=argv[1][12];
+  NAME[5]=']';
+
+  TCP tcp = TCP();
+  cout << "Server_t() 실행" <<endl;
+  tcp.Server_t();
+    
+  sleep(2);
+    
+  cout << "Client_t() 실행"<<endl;
+  tcp.Client_t(argv[1]);
+  sleep(2);
+  socks_cnt = tcp.Scnt();
+
+  for(int i =0;i<socks_cnt;i++){
+       if (idx+1 == argv[1][12]-'0'){
+            idx++;
+        }
+        server_ip.push_back(idx+1);
+        idx++;
+  }
+  while(1){
+      fgets(msg,1024,stdin);
+      sprintf(name_msg,"%s %s",NAME, msg);
+      for(int i=0;i<socks_cnt;i++){
+          tcp.Send_Msg(name_msg,server_ip[i]);
+      }
+  }
+
+  return 0;
 }

@@ -11,35 +11,43 @@
 #include <string>
 #include <vector>
 #include <thread>
-#include <pthread.h>
-#define MAX 80
-#define PORT 40100
-#define SA struct sockaddr
+#include <mutex>
+#include "map"
+#define PORT1 40100
 #define BUF_SIZE 100
 #define NAME_SIZE 20
-using namespace std;
+#define NumOfServer 8
 
+using namespace std;
 class TCP{
     public:
         void Server();
+        void Server_t();
         void Run(const char* iip);
         void Client(const char* iip);
-        void check(const char* iip);
-        void * handle_clnt(void* arg);
-        void send_msg(char* msg, int len);
-        void * send_msgc();
-        void * recv_msg(void * arg);
+        void Client_t(const char* iip);
+        void check_ip(const char* iip);
+        void send_msg(void * arg);
+        void Send_Msg(const char* m,int ip);
+        void Recv_Msg(int ip);
+        void recv_msg(void * arg);
+        int Scnt();
+        int *connect_sock();
+        int *client_sock();
+        map<string, string> ReadRDMAInfo(int ip);
     private:
-        const char* server[8] = {"192.168.1.101", "192.168.1.102",
+        const char* server[NumOfServer] = {"192.168.1.101", "192.168.1.102",
                                 "192.168.1.103", "192.168.1.104",
                                 "192.168.1.105", "192.168.1.106",
                                 "192.168.1.107", "192.168.1.108"};
         int sock;
-        void * thread_return;
         struct sockaddr_in serv_addr;
         struct sockaddr_in serv_adr, clnt_adr;
         int serv_sock, clnt_sock; 
-        int clnt_adr_sz;
-        pthread_mutex_t mutx;
-        vector<thread> workers;
+        int clnt_adr_size;
+        std::vector<std::thread> workers;
+        char buffer[1048676] = {0};
+        int valread;
+        string result;
+        string read_char;
 };

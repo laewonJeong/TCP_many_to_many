@@ -1,4 +1,4 @@
-# Install script for directory: /home/lwjeong/project/src
+# Install script for directory: /home/lwjeong/TCP_many_to_many/TCP_many_to_many/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
