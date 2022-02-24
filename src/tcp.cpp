@@ -101,7 +101,7 @@ void TCP::Server(){
       else{
          mutx.lock();
          char s = inet_ntoa(clnt_adr.sin_addr)[12];
-         clnt_socks[s-'0'] = clnt_sock;
+         clnt_socks[s-'0'] = clnt_sock;   //TCP 전송할 때 쓸 소켓을 저장
          clnt_cnt++;
          mutx.unlock();
 
@@ -140,7 +140,7 @@ void TCP::Client(const char* iip){
       if(connect(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr))==-1){
       }
    }
-   new_sock[iip[12]-'0'] = sock;
+   new_sock[iip[12]-'0'] = sock; //TCP 수신할때 쓸 소켓 저장
    mutx.lock();
    sock_cnt++;
    mutx.unlock();
