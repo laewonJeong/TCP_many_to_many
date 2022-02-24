@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
   tcp.Client_t(argv[1]);
   sleep(2);
   socks_cnt = tcp.Scnt();
-
+  sleep(2);
   for(int i =0;i<socks_cnt;i++){
        if (idx+1 == argv[1][12]-'0'){
             idx++;

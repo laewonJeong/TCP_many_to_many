@@ -133,6 +133,7 @@ void TCP::Client(const char* iip){
    sock_cnt++;
    mutx.unlock();
    std::thread recv = std::thread(&TCP::Recv_Msg,TCP(),iip[12]-'0');
+   recv.join();
 }
 void TCP::Client_t(const char*iip){
    TCP::check_ip(iip);
