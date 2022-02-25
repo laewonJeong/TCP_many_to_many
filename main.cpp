@@ -23,6 +23,7 @@ int main(int argc, char* argv[]){
   cout << "자는중... 기다리세요"<<endl;
   sleep(2);
   socks_cnt = tcp.Scnt();
+  cout << "자는중... 기다리세요"<<endl;
   sleep(2);
   for(int i =0;i<socks_cnt;i++){
        if (idx+1 == argv[1][12]-'0'){
