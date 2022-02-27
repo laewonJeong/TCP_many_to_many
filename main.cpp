@@ -1,4 +1,5 @@
 #include "tcp.hpp"
+#define BUF_SIZE 1024
 
 int main(int argc, char* argv[]){
   if(argc != 2)
@@ -35,7 +36,7 @@ int main(int argc, char* argv[]){
   cout << "------채팅시작------"<<endl;
   while(1){
       //char name_msg[1040];
-      fgets(msg,1024,stdin);
+      fgets(msg,BUF_SIZE,stdin);
 
       for(int i=0;i<socks_cnt;i++){
           tcp.Send_Msg(msg,server_ip[i]);
