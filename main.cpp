@@ -1,5 +1,5 @@
 #include "tcp.hpp"
-#define buf_size 1024
+#define buf_size 1024 //버프사이즈 정의
 
 int main(int argc, char* argv[]){
   if(argc != 2)
