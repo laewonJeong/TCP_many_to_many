@@ -1,4 +1,5 @@
 #include "tcp.hpp"
+#define buf_size 1024 //버프사이즈 정의
 
 int main(int argc, char* argv[]){
   if(argc != 2)
@@ -23,6 +24,7 @@ int main(int argc, char* argv[]){
   cout << "자는중... 기다리세요"<<endl;
   sleep(2);
   socks_cnt = tcp.Scnt();
+  cout << "자는중... 기다리세요"<<endl;
   sleep(2);
   for(int i =0;i<socks_cnt;i++){
        if (idx+1 == argv[1][12]-'0'){
@@ -34,7 +36,7 @@ int main(int argc, char* argv[]){
   cout << "------채팅시작------"<<endl;
   while(1){
       //char name_msg[1040];
-      fgets(msg,1024,stdin);
+      fgets(msg,buf_size,stdin);
 
       for(int i=0;i<socks_cnt;i++){
           tcp.Send_Msg(msg,server_ip[i]);
