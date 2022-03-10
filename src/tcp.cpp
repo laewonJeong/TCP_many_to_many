@@ -94,7 +94,9 @@ void TCP::Server(){
    while(1)
    {
       clnt_adr_size=sizeof(clnt_adr);
+      cout << "test" <<endl;
       clnt_sock=accept(serv_sock, (struct sockaddr*)&clnt_adr,(socklen_t*)&clnt_adr_size);
+      cout << "fuck" << endl;
       if(clnt_sock == -1){
          printf("%s와 accpet error\n", inet_ntoa(clnt_adr.sin_addr));
       }
