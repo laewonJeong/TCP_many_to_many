@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
   //char NAME[6];
   vector<int> server_ip;
   int idx = 0;
-  char msg[1024];
+  char msg[buf_size];
 
   TCP tcp = TCP();
   cout << "Server_t() 실행" <<endl;
@@ -35,7 +35,6 @@ int main(int argc, char* argv[]){
   }
   cout << "------채팅시작------"<<endl;
   while(1){
-      //char name_msg[1040];
       fgets(msg,buf_size,stdin);
 
       for(int i=0;i<socks_cnt;i++){
