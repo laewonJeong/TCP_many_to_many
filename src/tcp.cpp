@@ -52,7 +52,6 @@ void TCP::recv_msg(void * arg) // 안쓰는 함수
       str_len=read(sock, name_msg, NAME_SIZE+BUF_SIZE-1);
       if(strcmp(name_msg,"exit\n")==0){
          close(sock);
-         exit(0);
       }
       if(str_len==-1) 
          break;
