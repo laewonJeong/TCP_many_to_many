@@ -46,8 +46,7 @@ void TCP::recv_msg(void * arg) // 안쓰는 함수
 {
    //int sock=*((int*)arg);
    //char name_msg[NAME_SIZE+BUF_SIZE];
-   //int str_len;
-   //sleep(30); 
+   //int str_len; 
    /*while(1)
    {
       str_len=read(sock, name_msg, NAME_SIZE+BUF_SIZE-1);
