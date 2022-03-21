@@ -65,7 +65,7 @@ void TCP::Recv_Msg(int ip){
       int str_len;
       str_len = read(new_sock[ip], name_msg, 1030);
       if(strcmp(name_msg,"exit\n")==0){
-         exit(0);
+         exit(1);
       }
       if(str_len==-1) 
          break;
